@@ -1,6 +1,6 @@
 import unreal
 
-# Tolerance value is the overlap alowance
+# Tolerance value is the overlap allowance
 POSITION_TOLERANCE = 0.01  
 
 # Get the current level
