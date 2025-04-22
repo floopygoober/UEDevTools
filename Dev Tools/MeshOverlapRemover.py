@@ -12,12 +12,12 @@ def are_positions_overlapping(pos1, pos2, tolerance=POSITION_TOLERANCE):
             abs(pos1.y - pos2.y) < tolerance and 
             abs(pos1.z - pos2.z) < tolerance)
 
-# Get out static mesh actors
+# Get our static mesh actors
 def get_mesh_from_actor(actor):
     if isinstance(actor, unreal.StaticMeshActor):
         static_mesh_component = actor.get_component_by_class(unreal.StaticMeshComponent)
         if static_mesh_component:
-            return static_mesh_component.get_static_mesh()
+            return static_mesh_component.static_mesh 
     return None
 
 # Search and destroy
@@ -30,6 +30,9 @@ def remove_duplicates_in_scene():
         if isinstance(actor, unreal.StaticMeshActor):  # Check if the actor is a StaticMeshActor
             actor_location = actor.get_actor_location()
             actor_mesh = get_mesh_from_actor(actor)
+
+            if actor_mesh is None:
+                continue
             
             # Check if there's already an actor at the same or overlapping position and with the same mesh. 
             # This way if the mesh is different for design reasons (idk what) then keep it
@@ -37,7 +40,7 @@ def remove_duplicates_in_scene():
                 if are_positions_overlapping(actor_location, location) and actor_mesh == mesh:
                     # If there is a duplicate, nuke it
                     print(f"Removing duplicate actor: {actor.get_name()} with mesh {actor_mesh.get_name()} at position {actor_location}")
-                    unreal.EditorLevelLibrary.destroy_actor(actor)
+                    actor.destroy_actor()  
                     break
             else:
                 # nothing to see here move along
