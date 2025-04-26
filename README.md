@@ -34,3 +34,19 @@ as a last ditch i found this link https://github.com/wallerm/UE4/blob/master/Eng
 and ill be trying to add it into the project files in hopes that it works.
 
 so unfortunately that did not work either. i must have missed something really obvious on this one, it seems that ue5 is supposed to have this in the source files but for some reason i cannot generate it. 
+
+
+
+========================================================================== FINAL READ ME UPDATE (for now) ==============================================================================================================
+The file that i am submitting is both the ueBuilderWorking AND the python mesh overlap script as it is needed for the CMD script
+
+==========================================================================================INSTRUCTIONS================================================================================= (NO Im not lining it up like my comments)
+
+to set up and run this project first ensure both the cmd script and AT LEAST the python script are in the projects root folder. it just makes life easier instead of writing out each file path.
+Then next you should navigate to the cmd script in your cmd window, you can choose to run the python script by calling DUPS in the fourth input of the script or write anything else to bypass it. skip, random letters etc as long
+as you dont leave the input field blank. 
+
+==========================================================================================Final Notes =================================================================================
+in the git repo you can see the unrealPipeline script was what i had initially intended was to run this and also delete and regenerate the visual studio files for the project, but it relied on a bat script that i dont actually have
+. you can see in detail the notes above this final section where i tried a few things to see if it could be added back in, and on the unreal forums you can see posts of people saying it should be in the engine folder i was looking
+for it but maybe it is deprecated or something. i tried making  a C++ project from scratch to be sure and it also did not in fact have it. i left it in the repo so you can see the process i was trying to get to work but i had to submit a safety net with something that functioned. 
